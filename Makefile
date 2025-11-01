@@ -1,5 +1,3 @@
-# Helper targets for local quality checks.
-
 RUNNER ?= uv run
 
 .DEFAULT_GOAL := lint
@@ -13,9 +11,9 @@ ruff-format:
 	$(RUNNER) ruff format .
 
 ruff-check:
-	$(RUNNER) ruff check .
+	$(RUNNER) ruff check . --fix
 
-lint: ruff-format ruff-check mypy
+lint: mypy ruff-check ruff-format
 
 run:
 	$(RUNNER) python main.py
