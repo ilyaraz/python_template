@@ -1,5 +1,4 @@
-
-def main() -> None:
+def main():
     print("Hello from test-code!")
 
 
