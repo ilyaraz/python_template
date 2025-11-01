@@ -9,8 +9,42 @@ dependencies = []
 [dependency-groups]
 dev = [
     "mypy>=1.18.2",
+    "ruff>=0.14.3",
 ]
 
 [tool.mypy]
 python_version = "3.13"
 strict = true
+
+[tool.ruff]
+line-length = 88
+indent-width = 4
+target-version = "py313"
+lint.select = [
+    "E",
+    "F",
+    "I",
+    "B",
+    "UP",
+    "S",
+    "C4",
+    "SIM",
+    "TID",
+]
+lint.ignore = [
+    "E501",
+]
+lint.fixable = ["ALL"]
+lint.unfixable = []
+
+[tool.ruff.lint.isort]
+combine-as-imports = true
+known-first-party = []
+lines-between-types = 1
+
+[tool.ruff.format]
+quote-style = "double"
+indent-style = "space"
+docstring-code-format = true
+skip-magic-trailing-comma = false
+
