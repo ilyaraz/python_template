@@ -1,8 +1,10 @@
 RUNNER ?= uv run
+IMAGE_NAME ?= $(notdir $(CURDIR))
+TIMESTAMP := $(shell date +%Y%m%d%H%M%S)
 
 .DEFAULT_GOAL := lint
 
-.PHONY: mypy ruff-format ruff-format-ci ruff-check ruff-check-ci lint lint-ci run
+.PHONY: mypy ruff-format ruff-format-ci ruff-check ruff-check-ci lint lint-ci run docker-build
 
 mypy:
 	$(RUNNER) mypy .
@@ -25,3 +27,6 @@ lint-ci: ruff-check-ci ruff-format-ci mypy
 
 run:
 	$(RUNNER) python main.py
+
+docker-build:
+	docker build -t $(IMAGE_NAME):$(TIMESTAMP) -t $(IMAGE_NAME):latest .
