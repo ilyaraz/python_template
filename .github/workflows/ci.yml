@@ -23,4 +23,4 @@ jobs:
         run: python -m pip install --upgrade pip uv
 
       - name: Run linting
-        run: make
+        run: make lint-ci
