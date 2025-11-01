@@ -19,9 +19,9 @@ ruff-check:
 ruff-check-ci:
 	$(RUNNER) ruff check .
 
-lint: mypy ruff-check ruff-format
+lint: ruff-check ruff-format mypy
 
-lint-ci: mypy ruff-check-ci ruff-format-ci
+lint-ci: ruff-check-ci ruff-format-ci mypy
 
 run:
 	$(RUNNER) python main.py
