@@ -1,4 +1,7 @@
-def main():
+import asyncio
+
+
+def main() -> None:
     print("Hello from test-code!")
 
 
